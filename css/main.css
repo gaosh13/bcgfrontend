@@ -1,0 +1,35 @@
+.navbar{
+	/*background-color: red;*/
+	/*height: 5%;*/
+}
+
+.container-fluid{
+	/*background-color: red;*/
+	/*padding-top:30px;*/
+}
+
+
+
+#sidebar-span{
+	padding-top: 100px;
+}
+
+
+body {
+        padding-top: 54px;
+        padding-bottom: 54px;
+      }
+@media (min-width: 992px) {
+    body {
+  		padding-top: 56px;
+  		padding-bottom: 54px;
+    }
+}
+
+#flask-zone{
+	/*background-color: green;*/
+}
+
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
