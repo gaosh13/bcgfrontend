@@ -149,6 +149,59 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- 皮肤弹窗开始 -->
+	<div class="modal fade" id="skin" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        			<h4 class="modal-title" id="gridSystemModalLabel">皮肤</h4>
+      			</div>
+		      	<div class="modal-body">
+		      		<!-- <div class="col-sm-6"> -->
+		      			<div id="filters-skin" class="button-group">
+							<button class="button is-checked" data-filter="*">show all</button>
+							<button class="button" data-filter=".legendary">legendary</button>
+							<button class="button" data-filter=".uncommon">uncommon</button>
+							<button class="button" data-filter=".common">common</button>
+						</div>
+		      			<div class="skinhouse">
+							<div class="grid-skin">
+								<div class="skin-item legendary ">
+									<img src="image/skin_0.jpg" alt="0" class="img">
+								    <p class="name">伟伦</p>
+								    <p class="desc">并非所有流浪者都迷失了自我</p>
+								</div>
+								<div class="skin-item uncommon ">
+									<img src="image/skin_1.jpg" alt="1" class="img">
+								    <p class="name">飞刀</p>
+								    <p class="desc">把这个苹果放在你的头上</p>
+								</div>
+								<div class="skin-item common ">
+									<img src="image/skin_2.jpg" alt="2" class="img">
+								    <p class="name">迅猛龙</p>
+								    <p class="desc">迅猛龙是不是龙</p>
+								</div>
+								<div class="skin-item common ">
+									<img src="image/skin_3.jpg" alt="3" class="img">
+								    <p class="name">侏儒</p>
+								    <p class="desc">呃，我感觉很难受</p>
+								</div>
+							</div>
+						</div>
+					<!-- </div> -->
+		      	</div>
+		      		
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary">选择</button>
+				</div>
+    		</div><!-- /.modal-content -->
+  		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- 皮肤弹窗结束 -->
+
 	<!-- 图鉴弹窗开始 -->
 	<div class="modal fade" id="handbook" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   		<div class="modal-dialog" role="document">
@@ -377,7 +430,7 @@
   			<li><a href="#">仓库</a></li>
   			<li><a href="#"  data-toggle="modal" data-target="#compound">合成</a></li>
   			<li><a href="#">收藏</a></li>
-  			<li><a href="#">皮肤</a></li>
+  			<li><a href="#" data-toggle="modal" data-target="#skin">皮肤</a></li>
   			<li><a href="#" data-toggle="modal" data-target="#handbook">图鉴</a></li>
   			<li><a href="#">交易</a></li>
   			<li><a href="#" data-toggle="modal" data-target="#store">商店</a></li>
@@ -438,7 +491,37 @@
 			},
 		});
 
+
+
 		//initialize isotope
+		$('.grid-skin').isotope({
+		  		// options
+			  	itemSelector: '.skin-item',
+			  	layoutMode: 'fitRows',
+			  	/*
+			  	getSortData: {
+				    name: '.name',
+				    desc: '.desc',
+				    img: '.img',
+				    weight: function( itemElem ) {
+				      var weight = $( itemElem ).find('.weight').text();
+				      return parseFloat( weight.replace( /[\(\)]/g, '') );
+				    }
+				}
+				*/
+		});
+
+		$('#filters-skin').on('click', 'button', function() {
+		  	var filterValue = $( this ).attr('data-filter');
+		  	// use filterFn if matches value
+		  	filterValue = filterFns[ filterValue ] || filterValue;
+		  	$('.grid-skin').isotope({ filter: filterValue });
+		});
+
+		$('#skin').on('shown.bs.modal', function () {
+			$('#filters-skin button.is-checked').click();
+		});
+
 		$('.grid').isotope({
 		  		// options
 			  	itemSelector: '.element-item',
@@ -467,16 +550,13 @@
 		  	// use filterFn if matches value
 		  	filterValue = filterFns[ filterValue ] || filterValue;
 		  	$('.grid').isotope({ filter: filterValue });
-		});   
+		});
 	});
 
 	//用户悬浮框内点击操作  
 	function user_info() {  
 		alert('未完成');  
 	}
-
-		
-
 
 	// filter functions
 	var filterFns = {
