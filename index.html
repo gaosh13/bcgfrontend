@@ -201,8 +201,8 @@
 	<!-- 图鉴弹窗结束 -->
 
 
-	<!-- 图鉴弹窗开始 -->
-	<div class="modal fade" id="market" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<!-- 商店弹窗开始 -->
+	<div class="modal fade" id="store" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   		<div class="modal-dialog" role="document">
     		<div class="modal-content">
       			<div class="modal-header">
@@ -219,7 +219,44 @@
 
 					<!--Tab panes!-->
 					<div class="tab-content">
-					    <div role="tabpanel" class="tab-pane fade in active" id="home">A</div>
+					    <div role="tabpanel" class="tab-pane fade in active" id="home">
+					    	<h2>Filter</h2>
+							<div id="filters" class="button-group">  
+								<button class="button is-checked" data-filter="*">show all</button>
+								<button class="button" data-filter=".metal">metal</button>
+								<button class="button" data-filter=".transition">transition</button>
+								<button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+							</div>
+							<div class = "warehouse">
+						    	<div class="grid">
+									<div class="element-item transition metal " data-category="transition">
+									    <h3 class="name">Mercury</h3>
+									    <p class="symbol">Hg</p>
+									    <p class="number">80</p>
+									    <p class="weight">200.59</p>
+	  								</div>
+	  								<div class="element-item metalloid " data-category="metalloid">
+									    <h3 class="name">Tellurium</h3>
+									    <p class="symbol">Te</p>
+									    <p class="number">52</p>
+									    <p class="weight">127.6</p>
+	  								</div>
+	  								<div class="element-item post-transition metal " data-category="post-transition">
+									    <h3 class="name">Bismuth</h3>
+									    <p class="symbol">Bi</p>
+									    <p class="number">83</p>
+									    <p class="weight">208.980</p>
+	  								</div>
+								  	<div class="element-item post-transition metal " data-category="post-transition">
+								    	<h3 class="name">Lead</h3>
+								    	<p class="symbol">Pb</p>
+								    	<p class="number">82</p>
+								    	<p class="weight">207.2</p>
+								  	</div>
+								</div>
+							</div>
+
+					    </div>
 					    <div role="tabpanel" class="tab-pane fade" id="profile">B</div>
 					    <div role="tabpanel" class="tab-pane fade" id="messages">C</div>
   					</div>
@@ -237,17 +274,113 @@
     		</div><!-- /.modal-content -->
   		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
-	<!-- 图鉴弹窗结束 -->
+	<!-- 商店弹窗结束 -->
+	
+
+	<!-- 合成弹窗开始 -->
+	<div class="modal fade" id="compound" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  		<div class="modal-dialog" id="compound-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        			<h4 class="modal-title" id="gridSystemModalLabel">合成</h4>
+      			</div>
+		      	<div class="modal-body">
+		      		<div class="row">
+		      			<div class="col-sm-6 compound-col">	      		
+							<div id="filters-compound" class="button-group">  
+								<button class="button is-checked" data-filter="*">show all</button>
+								<button class="button" data-filter=".metal">metal</button>
+								<button class="button" data-filter=".transition">transition</button>
+								<button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+							</div>
+							<div class ="warehouse">
+						    	<div class="grid">
+									<div class="element-item transition metal " data-category="transition">
+									    <h3 class="name">Mercury</h3>
+									    <p class="symbol">Hg</p>
+									    <p class="number">80</p>
+									    <p class="weight">200.59</p>
+										</div>
+										<div class="element-item metalloid " data-category="metalloid">
+									    <h3 class="name">Tellurium</h3>
+									    <p class="symbol">Te</p>
+									    <p class="number">52</p>
+									    <p class="weight">127.6</p>
+										</div>
+										<div class="element-item post-transition metal " data-category="post-transition">
+									    <h3 class="name">Bismuth</h3>
+									    <p class="symbol">Bi</p>
+									    <p class="number">83</p>
+									    <p class="weight">208.980</p>
+										</div>
+								  	<div class="element-item post-transition metal " data-category="post-transition">
+								    	<h3 class="name">Lead</h3>
+								    	<p class="symbol">Pb</p>
+								    	<p class="number">82</p>
+								    	<p class="weight">207.2</p>
+								  	</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 compound-col">	      		
+							<div id="filters-compound" class="button-group">  
+								<button class="button is-checked" data-filter="*">show all</button>
+								<button class="button" data-filter=".metal">metal</button>
+								<button class="button" data-filter=".transition">transition</button>
+								<button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+							</div>
+							<div class ="warehouse">
+						    	<div class="grid">
+									<div class="element-item transition metal " data-category="transition">
+									    <h3 class="name">Mercury</h3>
+									    <p class="symbol">Hg</p>
+									    <p class="number">80</p>
+									    <p class="weight">200.59</p>
+										</div>
+										<div class="element-item metalloid " data-category="metalloid">
+									    <h3 class="name">Tellurium</h3>
+									    <p class="symbol">Te</p>
+									    <p class="number">52</p>
+									    <p class="weight">127.6</p>
+										</div>
+										<div class="element-item post-transition metal " data-category="post-transition">
+									    <h3 class="name">Bismuth</h3>
+									    <p class="symbol">Bi</p>
+									    <p class="number">83</p>
+									    <p class="weight">208.980</p>
+										</div>
+								  	<div class="element-item post-transition metal " data-category="post-transition">
+								    	<h3 class="name">Lead</h3>
+								    	<p class="symbol">Pb</p>
+								    	<p class="number">82</p>
+								    	<p class="weight">207.2</p>
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">合成</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>					
+				</div>
+    		</div><!-- /.modal-content -->
+  		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- 合成弹窗结束 -->
+
 
 	<nav class="navbar navbar-default navbar-fixed-bottom">
   		<span class="navbar-right"></span>
   		<ul class = "nav navbar-nav navbar-right">
   			<li><a href="#">仓库</a></li>
+  			<li><a href="#"  data-toggle="modal" data-target="#compound">合成</a></li>
   			<li><a href="#">收藏</a></li>
   			<li><a href="#">皮肤</a></li>
   			<li><a href="#" data-toggle="modal" data-target="#handbook">图鉴</a></li>
   			<li><a href="#">交易</a></li>
-  			<li><a href="#" data-toggle="modal" data-target="#market">商店</a></li>
+  			<li><a href="#" data-toggle="modal" data-target="#store">商店</a></li>
   			<li class="dropdown">
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">好友<span class="caret"></span></a>
           		<ul class="dropdown-menu dropdown-menu-left">
@@ -260,6 +393,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
@@ -303,10 +437,60 @@
 			    </form>'
 			},
 		});
+
+		//initialize isotope
+		$('.grid').isotope({
+		  		// options
+			  	itemSelector: '.element-item',
+			  	layoutMode: 'fitRows',
+			  	getSortData: {
+				    name: '.name',
+				    symbol: '.symbol',
+				    number: '.number parseInt',
+				    category: '[data-category]',
+				    weight: function( itemElem ) {
+				      var weight = $( itemElem ).find('.weight').text();
+				      return parseFloat( weight.replace( /[\(\)]/g, '') );
+				    }
+				}
+		});
+
+		$('#filters').on( 'click', 'button', function() {
+		  	var filterValue = $( this ).attr('data-filter');
+		  	// use filterFn if matches value
+		  	filterValue = filterFns[ filterValue ] || filterValue;
+		  	$('.grid').isotope({ filter: filterValue });
+		});
+
+		$('#filters-compound').on( 'click', 'button', function() {
+		  	var filterValue = $( this ).attr('data-filter');
+		  	// use filterFn if matches value
+		  	filterValue = filterFns[ filterValue ] || filterValue;
+		  	$('.grid').isotope({ filter: filterValue });
+		});   
 	});
 
 	//用户悬浮框内点击操作  
 	function user_info() {  
 		alert('未完成');  
 	}
+
+		
+
+
+	// filter functions
+	var filterFns = {
+	  // show if number is greater than 50
+	  	numberGreaterThan50: function() {
+	    	var number = $(this).find('.number').text();
+	    	return parseInt( number, 10 ) > 50;
+	  	},
+	  	// show if name ends with -ium
+	  	ium: function() {
+	    	var name = $(this).find('.name').text();
+	    	return name.match( /ium$/ );
+	  	}
+	};	
 </script>
+
+<script src="node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
