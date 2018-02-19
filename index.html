@@ -38,19 +38,40 @@
     </nav> -->
   	<div class ="container-fluid">
 		<nav class="navbar navbar-default navbar-fixed-top">
-	    	<div class="navbar-header">
-	      		<div class="col-md navbar-left" id="user_img-zone">
-	        		<a href="#" id="user_img" class="bind_hover_card" data-toggle="popover" data-placement="bottom" data-trigger="hover"><img src="image/user_img.jpg" alt="user"></img></a>
-	      		</div>
+	    	<div class="navbar-head">
 	      		<!-- <div class ="col-md navbar-left" >
 	    			<div class="row-md-6">等级</div>
 	    			<div class="row-md-6">名字</div>
 	    		</div> -->
 	    	</div>   	
 	    	<span class="navbar-left"></span>
-	    	<div class="navbar-left">
-	    		<!-- 登录输入框 -->
-	    		<a href="#" id="user_reg" class="bind_hover_card" role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus"><button type="button" class="btn navbar-btn">Sign in</button></a>
+	    	<div class="col-md navbar-left bar-auto-margin">
+        		<a href="#" id="user_img" class="bind_hover_card" data-toggle="popover" data-placement="bottom" data-trigger="focus"><img src="image/user_img.jpg" alt="user"></img></a>
+        		<div class="modal fade" id="user_info">
+	      			<font>等级:</font>2<br>
+	      			<font>经验:</font>265/400<br>
+	      			<font>性别:</font>未知<br>
+	      			<a href="#" data-toggle="modal" data-target="#skin" style="font-size:20px">皮肤</a>
+	      		</div>
+      		</div>
+      		<!-- 登录输入框 -->
+	    	<div class="navbar-left bar-auto-margin">
+	    		<a href="#" id="user_reg" class="bind_hover_card" data-toggle="popover" data-placement="bottom" data-trigger="focus">Sign in</a>
+	    		<div class="modal fade" id="sign_in_bar">
+	      			<form method="post">
+				        <div>
+				            <label for="username">用户名*</label>
+				            <input type="text" class="form-control" name="username"
+				                   id="username_register" placeholder="用户名" required/>
+				        </div>
+				        <div class="form-group">
+				            <label for="password">密码*</label>
+				            <input type="password" class="form-control" name="password"
+				                   id="password_register" placeholder="密码" required />
+				        </div>
+				        <input type="submit" class="btn btn-primary login-button" value="登录" style="width:70px;height:40px;" />
+				    </form>
+	      		</div>
 	  		</div>
 	  		<span class="navbar-right"></span>
 	  		<ul class = "nav navbar-nav navbar-right">
@@ -82,11 +103,6 @@
 				<div class = "row-md-2 row-md-offset-4">
 					<button type="button" class="btn btn-lg">每日</button>
 				</div>
-			<script>
-				$(function (){
-				    $("#test").popover('show');
-				});
-			</script>
 			</div>
 			<div class="col-sm-11" id="flask-zone">
 				<div class="page-header">
@@ -108,7 +124,7 @@
 		     							<div class="caption">
 		        							<h3>Thumbnail label</h3>
 		        							<p>...</p>
-		        							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		        							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" data-toggle="modal" data-target="#compound">Button</a></p>
 		      							</div>
 		    						</div>
   								</div>
@@ -123,7 +139,7 @@
 		     							<div class="caption">
 		        							<h3>Thumbnail label</h3>
 		        							<p>...</p>
-		        							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		        							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" data-toggle="modal" data-target="#compound">Button</a></p>
 		      							</div>
 		    						</div>
   								</div>
@@ -138,7 +154,7 @@
 		     							<div class="caption">
 		        							<h3>Thumbnail label</h3>
 		        							<p>...</p>
-		        							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		        							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" data-toggle="modal" data-target="#compound">Button</a></p>
 		      							</div>
 		    						</div>
   								</div>
@@ -454,6 +470,7 @@
 
 <script>
 	$(function() {
+		$("#test").popover();
 		$(".recharge").on("click", function(e){
 		    alert('请充值');
 		});
@@ -462,36 +479,19 @@
 			title: function() {
 				return "用户#210203";
 			},
-			delay:{show:100, hide:3000},
 			content: function() {
-			    return "<font>等级:</font>2<br><font>经验:</font>265/400<br><font>性别:</font>未知<br><input id='btn' type='button' value='详细' onclick='user_info()'/>";
+				return $("#user_info").html();
 			},
 		});
-
 		$("#user_reg").popover({
 			html : true,
 			title: function() {
 				return "请登录";
 			},
-			delay:{show:100, hide:10000},
 			content: function() {
-				return '<form method="post"> \
-			        <div> \
-			            <label for="username">用户名*</label> \
-			            <input type="text" class="form-control" name="username" \
-			                   id="username_register" placeholder="用户名" required/> \
-			        </div> \
-			        <div class="form-group"> \
-			            <label for="password">密码*</label> \
-			            <input type="password" class="form-control" name="password" \
-			                   id="password_register" placeholder="密码" required /> \
-			        </div> \
-			        <input type="submit" class="btn btn-primary login-button" value="登录" style="width:70px;height:40px;" /> \
-			    </form>'
+				return $("#sign_in_bar").html();
 			},
 		});
-
-
 
 		//initialize isotope
 		$('.grid-skin').isotope({
@@ -552,11 +552,6 @@
 		  	$('.grid').isotope({ filter: filterValue });
 		});
 	});
-
-	//用户悬浮框内点击操作  
-	function user_info() {  
-		alert('未完成');  
-	}
 
 	// filter functions
 	var filterFns = {
