@@ -36,12 +36,11 @@
         </div>
       </div>
     </nav> -->
-	
-  	<div class = "container-fluid">
+  	<div class ="container-fluid">
 		<nav class="navbar navbar-default navbar-fixed-top">
 	    	<div class="navbar-header">
-	      		<div class="col-md navbar-left">
-	        		<a href="#" class="bind_hover_card" data-toggle="popover" data-placement="bottom" data-trigger="hover"><img src="image/user_img.jpg" alt="user"></img></a>
+	      		<div class="col-md navbar-left" id="user_img-zone">
+	        		<a href="#" id="user_img" class="bind_hover_card" data-toggle="popover" data-placement="bottom" data-trigger="hover"><img src="image/user_img.jpg" alt="user"></img></a>
 	      		</div>
 	      		<!-- <div class ="col-md navbar-left" >
 	    			<div class="row-md-6">等级</div>
@@ -50,10 +49,15 @@
 	    	</div>   	
 	    	<span class="navbar-left"></span>
 	    	<div class="navbar-left">
-	  			<button type="button" class="btn navbar-btn">Sign in</button>
+	    		<!-- 登录输入框 -->
+	    		<a href="#" id="user_reg" class="bind_hover_card" role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus"><button type="button" class="btn navbar-btn">Sign in</button></a>
 	  		</div>
 	  		<span class="navbar-right"></span>
 	  		<ul class = "nav navbar-nav navbar-right">
+	  			<li><img src="image/game_property.jpg" id="game_property" usemap="#recharge"></li>
+	  			<map name="recharge">
+	  				<area class="recharge" shape="rect" coords="103,5,151,32" alt="Sun" href="#">
+	  			</map>
 	  			<li class="dropdown">
 	          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">语言<span class="caret"></span></a>
 	          		<ul class="dropdown-menu dropdown-menu-left">
@@ -72,7 +76,7 @@
 				<div class="row-md-2" id="sidebar-span">
 				</div>
 				<div class = "row-md-2 row-md-offset-4">
-					<a tabindex="0" id="test"class="btn btn-lg" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">公告</a>
+					<a href="#" tabindex="0" id="test" class="btn btn-lg" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">公告</a>
 				</div>
 				<br>
 				<div class = "row-md-2 row-md-offset-4">
@@ -82,7 +86,7 @@
 				$(function (){
 				    $("#test").popover('show');
 				});
-			</script>	
+			</script>
 			</div>
 			<div class="col-sm-11" id="flask-zone">
 				<div class="page-header">
@@ -262,32 +266,47 @@
 </html>
 
 <script>
-	$(function() {  
-		$("[data-toggle='popover']").popover({  
-			html : true,    
-			title: title(),    
-			delay:{show:500, hide:1000},  
-			content: function() {  
-			  return content();    
-			}   
-		});  
+	$(function() {
+		$(".recharge").on("click", function(e){
+		    alert('请充值');
+		});
+		$("#user_img").popover({
+			html : true,
+			title: function() {
+				return "用户#210203";
+			},
+			delay:{show:100, hide:3000},
+			content: function() {
+			    return "<font>等级:</font>2<br><font>经验:</font>265/400<br><font>性别:</font>未知<br><input id='btn' type='button' value='详细' onclick='user_info()'/>";
+			},
+		});
+
+		$("#user_reg").popover({
+			html : true,
+			title: function() {
+				return "请登录";
+			},
+			delay:{show:100, hide:10000},
+			content: function() {
+				return '<form method="post"> \
+			        <div> \
+			            <label for="username">用户名*</label> \
+			            <input type="text" class="form-control" name="username" \
+			                   id="username_register" placeholder="用户名" required/> \
+			        </div> \
+			        <div class="form-group"> \
+			            <label for="password">密码*</label> \
+			            <input type="password" class="form-control" name="password" \
+			                   id="password_register" placeholder="密码" required /> \
+			        </div> \
+			        <input type="submit" class="btn btn-primary login-button" value="登录" style="width:70px;height:40px;" /> \
+			    </form>'
+			},
+		});
 	});
 
-	function title() {  
-		return '悬浮窗';  
-	}  
-	  
-	//模拟动态加载内容(真实情况可能会跟后台进行ajax交互)  
-	function content() {  
-		var data = $("<form><ul><li><span aria-hidden='true' class='icon_globe'></span>&nbsp;<font>粉丝数:</font>7389223</li>" +  
-				 "<li><span aria-hidden='true' class='icon_piechart'></span>&nbsp;<font>关注:</font>265</li>" +  
-				 "<li><span aria-hidden='true' class='icon_search_alt'></span>&nbsp;<font>微博:</font>645</li>" +  
-				 "<li><span aria-hidden='true' class='icon_pens_alt'></span>&nbsp;<font>所在地:</font>台湾</li>" +  
-				 "<input id='btn' type='button' value='关注' onclick='test()'/></form>");
-		return data;
-	}  
-	//模拟悬浮框里面的按钮点击操作  
-	function test() {  
-		alert('关注成功');  
+	//用户悬浮框内点击操作  
+	function user_info() {  
+		alert('未完成');  
 	}
 </script>

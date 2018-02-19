@@ -8,8 +8,6 @@
 	/*padding-top:30px;*/
 }
 
-
-
 #sidebar-span{
 	padding-top: 100px;
 }
@@ -30,6 +28,14 @@ body {
 	/*background-color: green;*/
 }
 
+#user_img-zone{
+  margin: 10px;
+}
+
 @-moz-document url-prefix() {
   fieldset { display: table-cell; }
+}
+
+#game_property{
+  margin: 5px;
 }
