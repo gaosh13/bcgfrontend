@@ -182,25 +182,30 @@
 							<button class="button" data-filter=".uncommon">uncommon</button>
 							<button class="button" data-filter=".common">common</button>
 						</div>
+						<div id="large-skin" class="modal" style="text-align: center;">
+						  <span class="close">&times;</span>
+						  <img class="modal-content">
+						  <div class="supplementary" style="color: red; font-size: 20px"></div>
+						</div>
 		      			<div class="skinhouse">
 							<div class="grid-skin">
 								<div class="skin-item legendary ">
-									<img src="image/skin_0.jpg" alt="0" class="img">
+									<img src="image/skin_0.jpg" alt="伟伦" class="img">
 								    <p class="name">伟伦</p>
 								    <p class="desc">并非所有流浪者都迷失了自我</p>
 								</div>
 								<div class="skin-item uncommon ">
-									<img src="image/skin_1.jpg" alt="1" class="img">
+									<img src="image/skin_1.jpg" alt="飞刀" class="img">
 								    <p class="name">飞刀</p>
 								    <p class="desc">把这个苹果放在你的头上</p>
 								</div>
 								<div class="skin-item common ">
-									<img src="image/skin_2.jpg" alt="2" class="img">
+									<img src="image/skin_2.jpg" alt="迅猛龙" class="img">
 								    <p class="name">迅猛龙</p>
 								    <p class="desc">迅猛龙是不是龙</p>
 								</div>
 								<div class="skin-item common ">
-									<img src="image/skin_3.jpg" alt="3" class="img">
+									<img src="image/skin_3.jpg" alt="侏儒" class="img">
 								    <p class="name">侏儒</p>
 								    <p class="desc">呃，我感觉很难受</p>
 								</div>
@@ -520,6 +525,19 @@
 
 		$('#skin').on('shown.bs.modal', function () {
 			$('#filters-skin button.is-checked').click();
+			$('.skin-item .img').each(function(){
+				var modal = $("#large-skin")[0];
+				var src = this.src;
+				var alt = $(this.parentNode).find(".name").html();
+				this.onclick = function(){
+					modal.style.display = "block";
+					$(modal).find("span")[0].onclick = function(){
+						modal.style.display = "none";
+					};
+					$(modal).find(".modal-content")[0].src = src;
+					$(modal).find(".supplementary")[0].innerHTML = alt;
+				}
+			});
 		});
 
 		$('.grid').isotope({
