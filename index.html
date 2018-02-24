@@ -302,7 +302,7 @@
 								<button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
 							</div>
 							<div class = "warehouse">
-						    	<div class="grid">
+						    	<div class="grid" id="store-grid">
 									<div class="element-item transition metal " data-category="transition">
 									    <h3 class="name">Mercury</h3>
 									    <p class="symbol">Hg</p>
@@ -318,9 +318,35 @@
 	  								<div class="element-item post-transition metal " data-category="post-transition">
 									    <h3 class="name">Bismuth</h3>
 									    <p class="symbol">Bi</p>
+									    <img src="image/fire.svg" class="img-responsive" alt="Responsive image">
 									    <p class="number">83</p>
 									    <p class="weight">208.980</p>
 	  								</div>
+								  	<div class="element-item post-transition metal " data-category="post-transition">
+								    	<h3 class="name">Lead</h3>
+								    	<p class="symbol">Pb</p>
+								    	<img src="image/fire.svg" class="img-responsive" alt="Responsive image">
+								    	<p class="number">82</p>
+								    	<p class="weight">207.2</p>
+								  	</div>
+								  	<div class="element-item transition metal " data-category="transition">
+									    <h3 class="name">Mercury</h3>
+									    <p class="symbol">Hg</p>
+									    <p class="number">80</p>
+									    <p class="weight">200.59</p>
+										</div>
+									<div class="element-item metalloid " data-category="metalloid">
+									    <h3 class="name">Tellurium</h3>
+									    <p class="symbol">Te</p>
+									    <p class="number">52</p>
+									    <p class="weight">127.6</p>
+										</div>
+									<div class="element-item post-transition metal " data-category="post-transition">
+									    <h3 class="name">Bismuth</h3>
+									    <p class="symbol">Bi</p>
+									    <p class="number">83</p>
+									    <p class="weight">208.980</p>
+										</div>
 								  	<div class="element-item post-transition metal " data-category="post-transition">
 								    	<h3 class="name">Lead</h3>
 								    	<p class="symbol">Pb</p>
@@ -369,7 +395,7 @@
 								<button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
 							</div>
 							<div class ="warehouse">
-						    	<div class="grid">
+						    	<div class="grid" id="warehouse-grid">
 									<div class="element-item transition metal " data-category="transition">
 									    <h3 class="name">Mercury</h3>
 									    <p class="symbol">Hg</p>
@@ -398,27 +424,51 @@
 							</div>
 						</div>
 						<div class="col-sm-6 compound-col">	      		
-							<div id="filters-compound" class="button-group">  
+							<div id="filters-flask" class="button-group">  
 								<button class="button is-checked" data-filter="*">show all</button>
 								<button class="button" data-filter=".metal">metal</button>
 								<button class="button" data-filter=".transition">transition</button>
 								<button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
 							</div>
 							<div class ="warehouse">
-						    	<div class="grid">
+						    	<div class="grid" id="compound-flask">
 									<div class="element-item transition metal " data-category="transition">
 									    <h3 class="name">Mercury</h3>
 									    <p class="symbol">Hg</p>
 									    <p class="number">80</p>
 									    <p class="weight">200.59</p>
 										</div>
-										<div class="element-item metalloid " data-category="metalloid">
+									<div class="element-item metalloid " data-category="metalloid">
 									    <h3 class="name">Tellurium</h3>
 									    <p class="symbol">Te</p>
 									    <p class="number">52</p>
 									    <p class="weight">127.6</p>
 										</div>
-										<div class="element-item post-transition metal " data-category="post-transition">
+									<div class="element-item post-transition metal " data-category="post-transition">
+									    <h3 class="name">Bismuth</h3>
+									    <p class="symbol">Bi</p>
+									    <p class="number">83</p>
+									    <p class="weight">208.980</p>
+										</div>
+								  	<div class="element-item post-transition metal " data-category="post-transition">
+								    	<h3 class="name">Lead</h3>
+								    	<p class="symbol">Pb</p>
+								    	<p class="number">82</p>
+								    	<p class="weight">207.2</p>
+								  	</div>
+								  	<div class="element-item transition metal " data-category="transition">
+									    <h3 class="name">Mercury</h3>
+									    <p class="symbol">Hg</p>
+									    <p class="number">80</p>
+									    <p class="weight">200.59</p>
+										</div>
+									<div class="element-item metalloid " data-category="metalloid">
+									    <h3 class="name">Tellurium</h3>
+									    <p class="symbol">Te</p>
+									    <p class="number">52</p>
+									    <p class="weight">127.6</p>
+										</div>
+									<div class="element-item post-transition metal " data-category="post-transition">
 									    <h3 class="name">Bismuth</h3>
 									    <p class="symbol">Bi</p>
 									    <p class="number">83</p>
@@ -449,7 +499,7 @@
   		<span class="navbar-right"></span>
   		<ul class = "nav navbar-nav navbar-right">
   			<li><a href="#">仓库</a></li>
-  			<li><a href="#"  data-toggle="modal" data-target="#compound">合成</a></li>
+  			<li><a href="#"  data-toggle="modal" data-target="#compound" class="compound-link">合成</a></li>
   			<li><a href="#">收藏</a></li>
   			<li><a href="#" data-toggle="modal" data-target="#skin">皮肤</a></li>
   			<li><a href="#" data-toggle="modal" data-target="#handbook">图鉴</a></li>
@@ -503,17 +553,22 @@
 		  		// options
 			  	itemSelector: '.skin-item',
 			  	layoutMode: 'fitRows',
-			  	/*
+			  });
+			  	
+		var $warehouseGrid = $('#warehouse-grid').isotope({
+		  		// options
+			  	itemSelector: '.element-item',
+			  	layoutMode: 'fitRows',
 			  	getSortData: {
 				    name: '.name',
-				    desc: '.desc',
-				    img: '.img',
+				    symbol: '.symbol',
+				    number: '.number parseInt',
+				    category: '[data-category]',
 				    weight: function( itemElem ) {
 				      var weight = $( itemElem ).find('.weight').text();
 				      return parseFloat( weight.replace( /[\(\)]/g, '') );
 				    }
 				}
-				*/
 		});
 
 		$('#filters-skin').on('click', 'button', function() {
@@ -540,7 +595,12 @@
 			});
 		});
 
-		$('.grid').isotope({
+		// $('.compound-link').on("click", function(){
+		//     $('#warehouse-grid').isotope({layoutMode: 'fitRows' });
+		//     console.log('print');
+		// });
+
+		var $storeGrid = $('#store-grid').isotope({
 		  		// options
 			  	itemSelector: '.element-item',
 			  	layoutMode: 'fitRows',
@@ -556,19 +616,89 @@
 				}
 		});
 
+		//initilaize flsk
+		var $compoundFlask = $('#compound-flask').isotope({
+		  		// options
+			  	itemSelector: '.element-item',
+			  	layoutMode: 'fitRows',
+			  	getSortData: {
+				    name: '.name',
+				    symbol: '.symbol',
+				    number: '.number parseInt',
+				    category: '[data-category]',
+				    weight: function( itemElem ) {
+				      var weight = $( itemElem ).find('.weight').text();
+				      return parseFloat( weight.replace( /[\(\)]/g, '') );
+				    }
+				}
+		});
+
+		//remove from warehouse and append in flask
+		$warehouseGrid.on('click', '.element-item', function() {
+  			// remove clicked element
+  			$warehouseGrid.isotope( 'remove', this )
+  			// layout remaining item elements
+    		$warehouseGrid.isotope('layout');
+    		//console.log($(this).attr("class"));
+    		removeName = $(this).find('.name').html();
+    		// create new item elements
+    		itemString = '<div class="'+ $(this).attr("class") + '" data-category="transition">'+
+    										'<h3 class="name">'+ removeName +'</h3>\
+									    <p class="symbol">Hg</p>\
+									    <p class="number">80</p>\
+									    <p class="weight">200.59</p>\
+										</div>';
+  			var $items = $(itemString);
+
+  			// append items to grid
+  			//console.log(this)
+  			$compoundFlask.append($items)
+  			// add and lay out newly appended items
+    		$compoundFlask.isotope( 'appended', $items); 
+		});
+
+
+		$compoundFlask.on('click', '.element-item', function() {
+  			// remove clicked element
+  			$compoundFlask.isotope( 'remove', this )
+  			// layout remaining item elements
+    		$compoundFlask.isotope('layout');
+    		// create new item elements
+  			var $items = $('<div class="element-item transition metal " data-category="transition">\
+									    <h3 class="name">Mercury</h3>\
+									    <p class="symbol">Hg</p>\
+									    <p class="number">80</p>\
+									    <p class="weight">200.59</p>\
+										</div>');
+
+  			// append items to grid
+  			//console.log(this)
+  			$warehouseGrid.append($items)
+  			// add and lay out newly appended items
+    		$warehouseGrid.isotope('appended', $items); 
+		});
+
 		$('#filters').on( 'click', 'button', function() {
 		  	var filterValue = $( this ).attr('data-filter');
 		  	// use filterFn if matches value
 		  	filterValue = filterFns[ filterValue ] || filterValue;
-		  	$('.grid').isotope({ filter: filterValue });
+		  	$storeGrid.isotope({ filter: filterValue });
 		});
 
 		$('#filters-compound').on( 'click', 'button', function() {
 		  	var filterValue = $( this ).attr('data-filter');
 		  	// use filterFn if matches value
 		  	filterValue = filterFns[ filterValue ] || filterValue;
-		  	$('.grid').isotope({ filter: filterValue });
-		});
+		  	$warehouseGrid.isotope({ filter: filterValue });
+		}); 
+
+
+		$('#filters-flask').on( 'click', 'button', function() {
+		  	var filterValue = $( this ).attr('data-filter');
+		  	// use filterFn if matches value
+		  	filterValue = filterFns[ filterValue ] || filterValue;
+		  	$compoundFlask.isotope({ filter: filterValue });
+		});  
 	});
 
 	// filter functions
